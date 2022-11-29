@@ -10,16 +10,17 @@
 </head>
 <body>
     <div class="container">
-      <div class="loginbox">
+      <div>
         <!-- navigation -->
         <nav class="navbar bg-light">
             <div class="container-fluid">
               <a class="navbar-brand">My To do List</a>
-              <form class="d-flex"  action="todo.html" onsubmit="return validate(redirect)">
+              <form class="d-flex"  action="">
                 <input id="username" class="form-control me-2" type="text" placeholder="User name" required>
                 <input id="password" class="form-control me-2" type="password" placeholder="password" required>
-                <button class="btn btn-outline-success" type="submit">Login</button>
+                
               </form>
+              <button class="btn btn-outline-success" type="submit" onclick="return validate(redirect)">Login</button>
             </div>
           </nav>
        <!-- navigation --> 
