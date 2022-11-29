@@ -39,3 +39,20 @@ function displaylist(){
   request.send()
 }
 
+function check(){
+  let checkboxes = document.querySelectorAll(`mycheck`);
+  let count = 0;
+  let len =checkboxes.length[5];
+  for(let i=0; i<=len; i++){
+    checkboxes[i].addEventListener(`click`,function(){
+      if(this.checked==true){
+        count++;
+        alert("congrats");
+      }else{
+        count--;
+      }
+       
+    })
+  }
+}
+check();
