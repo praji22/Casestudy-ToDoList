@@ -27,7 +27,7 @@ function displaylist(){
                       <tr>
                         <td> ${response[i].id} </td>
                         <td> ${response[i].title} </td>
-                        <td> <input type="checkbox" id="myCheck" value=${i} ${response[i].completed?"checked disabled":"unchecked"}></td>
+                        <td> <input type="checkbox" class="mycheck" onchange="checkvalidate()" value=${i} ${response[i].completed?"checked disabled":"unchecked"}></td>
                       </tr>
                       </table>`;        
                       
@@ -39,20 +39,28 @@ function displaylist(){
   request.send()
 }
 
-function check(){
-  let checkboxes = document.querySelectorAll(`mycheck`);
-  let count = 0;
-  let len =checkboxes.length[5];
-  for(let i=0; i<=len; i++){
-    checkboxes[i].addEventListener(`click`,function(){
-      if(this.checked==true){
-        count++;
-        alert("congrats");
-      }else{
-        count--;
-      }
-       
+
+//Checkbox 
+function checkvalidate()
+{
+    let check = document.getElementsByClassName("mycheck");
+    let promise = new Promise(function(resolve, reject){
+        let counter=0;
+        for(let i=0; i<check.length; i++)
+        {   
+          if(check[i].defaultChecked==false){
+            if(check[i].checked==true)
+            {
+             counter +=1;
+            }
+           }   
+        }
+        if(counter==5)
+        {
+            resolve("Congrats. 5 Tasks have been Successfully Completed");
+        }       
     })
-  }
+    promise.then(function(s){
+      alert(s)
+    })
 }
-check();
